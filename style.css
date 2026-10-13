@@ -1,0 +1,57 @@
+* { box-sizing: border-box; }
+
+:root {
+  --ink: #172033;
+  --muted: #667085;
+  --primary: #3563e9;
+  --surface: #ffffff;
+  --background: #f3f6fb;
+  --border: #e3e8f2;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(145deg, #edf3ff, var(--background) 55%, #f8faff);
+  line-height: 1.55;
+}
+
+.container { width: min(760px, 92%); margin: 0 auto; padding: 42px 0; }
+.hero { text-align: center; margin-bottom: 28px; }
+.badge {
+  display: inline-block; padding: 6px 12px; border-radius: 999px;
+  background: #e1eaff; color: #234bc4; font-size: 12px;
+  font-weight: 800; letter-spacing: 1.4px;
+}
+h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.12; margin: 16px 0 10px; }
+.hero p { color: var(--muted); margin: 0 auto; max-width: 520px; }
+.card, .result {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 18px; padding: 26px; margin-bottom: 22px;
+  box-shadow: 0 12px 32px rgba(24, 43, 85, 0.07);
+}
+h2 { margin: 0 0 18px; font-size: 22px; }
+form { display: grid; gap: 10px; }
+label { font-weight: 700; font-size: 14px; margin-top: 5px; }
+select {
+  width: 100%; padding: 12px; border: 1px solid #ccd5e5;
+  border-radius: 10px; background: #fff; color: var(--ink); font-size: 15px;
+}
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.row > div { display: grid; gap: 10px; }
+button {
+  margin-top: 12px; padding: 14px 18px; border: 0; border-radius: 10px;
+  background: var(--primary); color: white; font-weight: 800; font-size: 16px;
+  cursor: pointer; transition: transform .15s, background .15s;
+}
+button:hover { background: #244dcc; transform: translateY(-1px); }
+.result { border-left: 5px solid var(--primary); }
+.plan-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.error { border-left-color: #d92d20; }
+footer { text-align: center; color: var(--muted); font-size: 12px; padding: 0 12px; }
+@media (max-width: 520px) {
+  .container { padding: 24px 0; }
+  .card, .result { padding: 19px; }
+  .row { grid-template-columns: 1fr; gap: 0; }
+}
