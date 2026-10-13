@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitBuddy | AI Fitness Plan Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div class="badge">FITBUDDY AI</div>
+      <h1>Your fitness plan, made for you.</h1>
+      <p>Build a practical weekly routine that fits your goals, schedule, and equipment.</p>
+    </header>
+
+    <section class="card">
+      <h2>Create your plan</h2>
+      <form method="POST">
+        <label for="goal">Your goal</label>
+        <select id="goal" name="goal" required>
+          <option>General fitness</option>
+          <option>Build strength</option>
+          <option>Improve stamina</option>
+          <option>Improve flexibility</option>
+          <option>Build a consistent exercise habit</option>
+        </select>
+
+        <label for="level">Experience level</label>
+        <select id="level" name="level" required>
+          <option>Beginner</option>
+          <option>Intermediate</option>
+          <option>Experienced</option>
+        </select>
+
+        <div class="row">
+          <div>
+            <label for="days">Days per week</label>
+            <select id="days" name="days">
+              {% for day in range(1, 8) %}
+              <option value="{{ day }}" {% if day == 3 %}selected{% endif %}>{{ day }} day{% if day != 1 %}s{% endif %}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div>
+            <label for="minutes">Time per session</label>
+            <select id="minutes" name="minutes">
+              {% for minute in [10, 15, 20, 30, 45, 60] %}
+              <option value="{{ minute }}" {% if minute == 20 %}selected{% endif %}>{{ minute }} minutes</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <label for="equipment">Equipment available</label>
+        <select id="equipment" name="equipment">
+          <option>No equipment</option>
+          <option>Dumbbells</option>
+          <option>Resistance bands</option>
+          <option>Gym equipment</option>
+          <option>Bodyweight and walking space</option>
+        </select>
+
+        <button type="submit">Generate my plan</button>
+      </form>
+    </section>
+
+    {% if error %}
+    <section class="result error"><h2>Check your choices</h2><p>{{ error }}</p></section>
+    {% endif %}
+
+    {% if plan %}
+    <section class="result">
+      <h2>Your FitBuddy plan</h2>
+      <div class="plan-text">{{ plan }}</div>
+    </section>
+    {% endif %}
+
+    <footer>
+      <p>General fitness information only—not medical advice. Start gently and stop if you feel pain, dizzy, or unwell.</p>
+    </footer>
+  </main>
+</body>
+</html>
