@@ -37,5 +37,12 @@ in production.
 
 ## Health and safety
 Plans are general information, not medical advice. Start at a comfortable level,
-allow recovery time, and stop if exercise causes pain, dizziness, or feeling unwell.
+allow recovery time, and stop if exercise causes pain, dizziness, or feeling unw
+## 🚀 Live Demo
+https://fitbuddy-o41t.onrender.com
+
+## 📝 Notes
+Please wait a few moments for the app to load, as the server may take time to start.
+
+ell.
 Ask a qualified healthcare professional about exercise if you have health concerns.
